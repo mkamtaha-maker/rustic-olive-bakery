@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root {
+  --bg: #121212; 
+  --text: #f8fafc; 
+  --accent: #d97706; 
+  --card: #1c1c1c; 
+  --border: #2a2a2a; 
+  --sub: #9ca3af;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  max-width: 480px; 
+  margin: 0 auto; 
+  padding: 16px 16px 40px 16px; 
+  background: var(--bg); 
+  color: var(--text); 
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+  min-height: 100vh; 
+}
+
+.header { text-align: center; margin-bottom: 22px; }
+.header h1 { font-size: 22px; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+.header p { font-size: 13px; color: var(--sub); line-height: 1.4; }
+
+.lang-switch { display:flex; justify-content:center; gap:8px; margin-bottom:20px; }
+.lang-switch button { 
+  padding:6px 18px; 
+  border-radius:20px; 
+  font-weight:600; 
+  font-size:13px; 
+  border:1px solid var(--border); 
+  cursor:pointer; 
+  transition: 0.2s;
+}
+
+.category-title { 
+  font-size: 15px; 
+  font-weight: 700; 
+  color: var(--accent); 
+  text-transform: uppercase; 
+  margin: 24px 0 12px 0; 
+  border-bottom: 1px solid var(--border); 
+  padding-bottom: 4px; 
+}
+
+.item-box { 
+  background: var(--card); 
+  border: 1px solid var(--border); 
+  border-radius: 12px; 
+  padding: 14px; 
+  margin-bottom: 12px; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03); 
+}
+
+.item-row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 15px; font-weight: 600; }
+.item-price { font-weight: 700; color: var(--accent); white-space: nowrap; direction: ltr; }
+.item-desc { font-size: 13px; color: var(--sub); line-height: 1.4; margin-top: 5px; }
+
+.phone-link { 
+  display: inline-block; 
+  margin-top: 8px; 
+  font-size: 13px; 
+  color: var(--accent); 
+  text-decoration: none; 
+  direction: ltr !important; 
+  unicode-bidi: embed; 
+}
+
+.menu-footer { 
+  margin-top: 32px; 
+  padding-top: 16px; 
+  border-top: 1px dashed var(--border); 
+  font-size: 12px; 
+  color: var(--sub); 
+  text-align: center; 
+  line-height: 1.5; 
+}
+</style>
+</head>
+<body>
+
+<div class="lang-switch">
+  <button id="btn-en" onclick="setLang('en')" style="background:var(--accent); color:#ffffff;">English</button>
+  <button id="btn-ar" onclick="setLang('ar')" style="background:var(--card); color:var(--text);">العربية</button>
+</div>
+
+<div id="section-en" dir="ltr">
+  <header class="header">
+    <h1>The Gilded Table</h1>
+    <p>Exquisite fine dining curated with local ingredients and artisanal techniques.</p>
+    <a href="tel:+971501234567" class="phone-link"><bdi>+971 50 123 4567</bdi></a>
+  </header>
+
+  <h2 class="category-title">Appetizers</h2>
+  <div class="item-box">
+    <div class="item-row">
+      <span>Truffle Arancini</span>
+      <span class="item-price">AED 45</span>
+    </div>
+    <p class="item-desc">Crispy risotto balls infused with black truffle and served with roasted garlic aioli.</p>
+  </div>
+  <div class="item-box">
+    <div class="item-row">
+      <span>Burrata & Heirloom Tomato</span>
+      <span class="item-price">AED 62</span>
+    </div>
+    <p class="item-desc">Creamy burrata cheese, organic tomatoes, basil pesto, and balsamic glaze.</p>
+  </div>
+
+  <h2 class="category-title">Main Courses</h2>
+  <div class="item-box">
+    <div class="item-row">
+      <span>Wagyu Ribeye</span>
+      <span class="item-price">AED 195</span>
+    </div>
+    <p class="item-desc">Grade 7+ Wagyu served with truffle mashed potatoes and asparagus.</p>
+  </div>
+  <div class="item-box">
+    <div class="item-row">
+      <span>Pan-Seared Seabass</span>
+      <span class="item-price">AED 140</span>
+    </div>
+    <p class="item-desc">Wild-caught seabass with saffron beurre blanc and sautéed baby spinach.</p>
+  </div>
+
+  <div class="menu-footer">
+    Please inform us of any allergies before ordering. All prices include 5% VAT.
+  </div>
+</div>
+
+<div id="section-ar" dir="rtl" style="display:none;">
+  <header class="header">
+    <h1>المائدة المذهبة</h1>
+    <p>تجربة عشاء فاخرة محضرة بمكونات محلية وتقنيات فنية عريقة.</p>
+    <a href="tel:+971501234567" class="phone-link"><bdi>+971 50 123 4567</bdi></a>
+  </header>
+
+  <h2 class="category-title">المقبلات</h2>
+  <div class="item-box">
+    <div class="item-row">
+      <span>أرانتشيني بالكمأة</span>
+      <span class="item-price">45 AED</span>
+    </div>
+    <p class="item-desc">كرات الأرز المقرمشة بنكهة الكمأة السوداء تقدم مع صوص الثوم المشوي.</p>
+  </div>
+  <div class="item-box">
+    <div class="item-row">
+      <span>بوراتا مع الطماطم</span>
+      <span class="item-price">62 AED</span>
+    </div>
+    <p class="item-desc">جبنة بوراتا كريمية، طماطم عضوية، بيستو الريحان وخل البلسميك.</p>
+  </div>
+
+  <h2 class="category-title">الأطباق الرئيسية</h2>
+  <div class="item-box">
+    <div class="item-row">
+      <span>واغيو ريب آي</span>
+      <span class="item-price">195 AED</span>
+    </div>
+    <p class="item-desc">ستيك واغيو درجة 7+ يقدم مع مهروس البطاطس بالكمأة والهليون.</p>
+  </div>
+  <div class="item-box">
+    <div class="item-row">
+      <span>سيباس مقلي</span>
+      <span class="item-price">140 AED</span>
+    </div>
+    <p class="item-desc">سمك سيباس بري مع صلصة الزعفران والزبدة والسبانخ الصغيرة.</p>
+  </div>
+
+  <div class="menu-footer">
+    يرجى إبلاغنا في حال وجود أي حساسية تجاه الطعام. جميع الأسعار تشمل ضريبة القيمة المضافة 5%.
+  </div>
+</div>
+
+<script>
+  function setLang(l) {
+    var e = document.getElementById('section-en');
+    var a = document.getElementById('section-ar');
+    var be = document.getElementById('btn-en');
+    var ba = document.getElementById('btn-ar');
+    if (l === 'ar') {
+      e.style.display = 'none';
+      a.style.display = 'block';
+      ba.style.background = 'var(--accent)';
+      ba.style.color = '#ffffff';
+      be.style.background = 'var(--card)';
+      be.style.color = 'var(--text)';
+    } else {
+      a.style.display = 'none';
+      e.style.display = 'block';
+      be.style.background = 'var(--accent)';
+      be.style.color = '#ffffff';
+      ba.style.background = 'var(--card)';
+      ba.style.color = 'var(--text)';
+    }
+  }
+</script>
+</body>
+</html>
